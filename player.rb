@@ -1,4 +1,5 @@
 require_relative 'scrabble'
+require_relative 'tilebag'
 
 class Player
   def initialize(name)
@@ -52,5 +53,11 @@ class Player
       raise Error
     end
     @tiles
+  end
+
+  def draw_tiles(tile_bag)
+    if @tiles.length < 7
+      @tiles = @tiles + tile_bag.draw_tiles(7 - @tiles.length)
+    end
   end
 end

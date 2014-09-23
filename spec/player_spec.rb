@@ -85,10 +85,12 @@ describe Player do
       end
     end
 
-    # describe "#draw_tiles(tile_bag)" do
-    #   it "draws tiles from a tile_bag instance" do
-    #     expect(bob.draw_tiles(TileBag.new))
-    #   end
-    # end
+    describe "#draw_tiles(tile_bag)" do
+      let (:bag) {TileBag.new}
+      it "draws tiles from a tile_bag instance" do
+        bob.draw_tiles(bag)
+        expect(bob.tiles.length).to eq 7
+      end
+    end
   end
 end
